@@ -14,12 +14,16 @@ import {
   profileUrl,
 } from './utils/routeConstants'
 
+// temp test page, pls delete after actual question page is up
+import RenderPage from './pages/RenderPage'
+
 const App = () => {
   return (
     <div className="App">
       <Router>
         <NavBar />
         <Routes>
+          <Route path={'/test'} element={<RenderPage />}/>
           <Route exact path={baseUrl} element={<LandingPage />} />
           <Route path={signupUrl} element={<SignupPage />} />
           <Route path={loginUrl} element={<LoginPage />} />
