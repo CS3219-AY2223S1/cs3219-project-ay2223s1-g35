@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import AccountCircle from '@mui/icons-material/AccountCircle'
 import AppBar from '@mui/material/AppBar'
+import IconButton from '@mui/material/IconButton'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import IconButton from '@mui/material/IconButton'
-import AccountCircle from '@mui/icons-material/AccountCircle'
-import MenuItem from '@mui/material/MenuItem'
-import Menu from '@mui/material/Menu'
 import { logoutUser, isUserLoggedIn } from '../api/userService'
 import { loginUrl, profileUrl } from '../utils/routeConstants'
 
@@ -23,7 +23,7 @@ const NavBar = () => {
   }
 
   const handleProfile = () => {
-    handleClose();
+    handleClose()
     navigate(profileUrl)
   }
 

@@ -1,5 +1,5 @@
-import { Box, Button, Typography } from '@mui/material'
 import { useNavigate, Navigate } from 'react-router-dom'
+import { Box, Button, Typography } from '@mui/material'
 import { isUserLoggedIn } from '../api/userService'
 import { homeUrl } from '../utils/routeConstants'
 

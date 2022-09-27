@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import Cookies from 'js-cookie'
-import CircularProgress from '@mui/material/CircularProgress'
 import Box from '@mui/material/Box'
-import { UserContext } from '../contexts/UserContext'
+import CircularProgress from '@mui/material/CircularProgress'
 import { isUserLoggedIn, getUser } from '../api/userService'
-import { loginUrl } from '../utils/routeConstants'
+import { UserContext } from '../contexts/UserContext'
 import { AUTH_REDIRECT, COOKIES_AUTH_TOKEN } from '../utils/constants'
+import { loginUrl } from '../utils/routeConstants'
 
 // enum for the different view states in an FSM-pattern
 const PrivateRouteViewState = {

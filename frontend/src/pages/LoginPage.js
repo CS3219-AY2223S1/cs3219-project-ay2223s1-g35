@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { Button } from '@mui/material'
-import UserAuth from '../components/UserAuth'
+import { loginUser, isUserLoggedIn } from '../api/userService'
 import {
   AUTH_REDIRECT,
   STATUS_CODE_SUCCESS,
   STATUS_CODE_BAD_REQUEST,
   STATUS_CODE_UNAUTHORIZED,
 } from '../utils/constants'
-import { homeUrl } from '../utils/routeConstants'
 import { checkFormFields } from '../utils/main'
-import { loginUser, isUserLoggedIn } from '../api/userService'
+import { homeUrl } from '../utils/routeConstants'
+import UserAuth from '../components/UserAuth'
 
 const LoginPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -28,16 +28,16 @@ const LoginPage = () => {
     try {
       const res = await loginUser(username, password)
       if (res && res.status === STATUS_CODE_SUCCESS) {
-        setSuccessDialog('Logged in successfully!')
+        setSuccessDialog('Logged in successfully!') // not sure why success dialog is not showing
         setIsLoginSuccess(true)
       }
     } catch (err) {
       if (err.response.status === STATUS_CODE_UNAUTHORIZED) {
         setErrorDialog('Wrong username/password.')
       } else if (err.response.status === STATUS_CODE_BAD_REQUEST) {
-        setErrorDialog('Username and/or Password are missing!')
+        setErrorDialog('Username and/or Password are missing.')
       } else {
-        setErrorDialog('Please try again later')
+        setErrorDialog('Please try again later.')
       }
     }
   }

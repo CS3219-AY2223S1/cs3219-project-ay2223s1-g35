@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box,
   Button,
@@ -9,8 +11,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const UserAuth = ({
   pageTitle,
@@ -93,7 +93,7 @@ const UserAuth = ({
           {isAuthSuccess ? (
             redirectButton()
           ) : (
-            <Button onClick={closeDialog}>Done</Button>
+            <Button onClick={closeDialog}>OK</Button>
           )}
         </DialogActions>
       </Dialog>
