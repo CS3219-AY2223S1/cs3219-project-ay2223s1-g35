@@ -1,0 +1,16 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffcccc', 'edgeLabelBackground':'#ffffee', 'tertiaryColor': '#fff0f0'}}}%%
+sequenceDiagram
+    actor Client1
+    
+    Client1 ->> Client1: navigate to homepage
+    Client1 ->> Service: findRoomService(id1: Client1 || id2: Client1)
+    Service -->> Client1: response
+    opt response not empty
+        alt Room Expired
+            Client1 ->> Service: deleteRoomService(room_id)
+            Service -->> Client1: success
+        else Room has not expired
+            Client1 ->> Client1: navigate(collabURL)
+        end 
+    end
+    
